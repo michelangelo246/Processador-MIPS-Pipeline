@@ -1,0 +1,17 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.std_logic_signed.all;
+use ieee.numeric_std.all;
+
+library work;
+
+Entity MIPS is
+	Port
+	(
+	
+	);
+End MIPS;
+
+Architecture Behavior of MIPS is
+
+End Behavior;

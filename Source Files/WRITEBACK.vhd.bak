@@ -1,0 +1,32 @@
+---
+---	WRITEBACK - OAC
+---	Autor: Michelangelo da Rocha Machado - 14/0156089
+---
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_signed.all;
+use ieee.numeric_std.all;
+
+entity WRITEBACK is
+	generic (WSIZE : natural := 32);
+	port
+	(
+		--- entradas ---
+		
+		
+		
+	);
+end WRITEBACK;
+
+architecture behavior of WRITEBACK is
+	
+	
+	
+	
+begin
+	
+	
+	
+	
+end behavior;

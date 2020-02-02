@@ -1,0 +1,69 @@
+---
+---	MEM_WB MIPS - OAC
+---	Autor: Michelangelo da Rocha Machado - 14/0156089
+---
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.std_logic_signed.all;
+use ieee.numeric_std.all;
+
+Entity MEM_WB is
+	generic (WSIZE : natural := 32);
+	
+   Port
+	(
+		--- entradas ---
+		clk					:	in std_logic;
+		BranchAddr			:	in std_logic_vector(31 downto 0);
+		ALUzero				:	in std_logic;
+		ALUresultado		:	in std_logic_vector(31 downto 0);
+		reg2					:	in std_logic_vector(31 downto 0);
+		rdOut					:	in std_logic_vector(4 downto 0);
+		
+		--- entradas controle ---
+		Branch				:	in std_logic;
+		EscreveMem			:	in std_logic;
+		EscreveReg			:	in std_logic;
+		MemparaReg			:	in std_logic;
+		
+		--- saidas controle ---
+		Branch_MEM			:	out std_logic;
+		EscreveMem_MEM		:	out std_logic;
+		EscreveReg_WB		:	out std_logic;
+		MemparaReg_WB		:	out std_logic;
+		
+		--- saidas ---
+		BranchAddr_out		:	out std_logic_vector(31 downto 0);
+		ALUzero_out			:	out std_logic;
+		ALUresultado_out	:	out std_logic_vector(31 downto 0);
+		reg2_out				:	out std_logic_vector(31 downto 0);
+		rdOut_out			:	out std_logic_vector(4 downto 0)
+		
+	);
+end MEM_WB;
+
+architecture behavior of MEM_WB is
+	
+begin
+	
+	process(clk)
+		begin
+			IF rising_edge(clk) THEN
+			
+            BranchAddr_out		<= BranchAddr;
+				ALUzero_out			<= ALUzero;
+				ALUresultado_out	<= ALUresultado;
+				reg2_out				<= reg2;
+				rdOut_out			<= rdOut;
+				                  
+				Branch_MEM			<= Branch;
+				EscreveMem_MEM		<= EscreveMem;
+				EscreveReg_WB		<= EscreveReg;
+				MemparaReg_WB		<= MemparaReg;
+				
+			end if;              
+	end process;
+	
+	
+end behavior;

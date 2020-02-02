@@ -1,0 +1,41 @@
+---
+---	ID_EX MIPS - OAC
+---	Autor: Michelangelo da Rocha Machado - 14/0156089
+---
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.std_logic_signed.all;
+use ieee.numeric_std.all;
+
+Entity ID_EX is
+	generic (WSIZE : natural := 32);
+	
+   Port
+	(
+		--- entradas ---
+		clk				:	in std_logic;
+		PC_4				:	in std_logic_vector(31 downto 0);
+		Instrucao		:	in std_logic_vector(31 downto 0);
+		
+		--- saidas ---
+		PC_4_out			:	out std_logic_vector(31 downto 0);
+		Instrucao_out	:	out std_logic_vector(31 downto 0);
+		
+	);
+end ID_EX;
+
+architecture behavior of ID_EX is
+	
+begin
+	
+	process(clk)
+		begin
+			IF rising_edge(clk) THEN
+            PC_4_out 		<= PC_4;
+				Instrucao_out	<= Instrucao;
+			end if;
+	end process;
+	
+	
+end behavior;

@@ -1,0 +1,31 @@
+---
+---	EXECUTE - OAC
+---	Autor: Michelangelo da Rocha Machado - 14/0156089
+---
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_signed.all;
+use ieee.numeric_std.all;
+
+entity EXECUTE is
+	generic (WSIZE : natural := 32);
+	port
+	(
+		
+		
+		
+	);
+end EXECUTE;
+
+architecture behavior of EXECUTE is
+	
+	
+begin
+	
+	
+	
+	
+	
+	
+end behavior;

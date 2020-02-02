@@ -1,0 +1,27 @@
+---
+---	EXECUTE - OAC
+---	Autor: Michelangelo da Rocha Machado - 14/0156089
+---
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity DECODE is
+	generic (WSIZE : natural := 32);
+	port
+	(
+		--- entradas ---
+		PC_4				:	in std_logic;
+		reg1				:	in std_logic;
+		reg2				:	in std_logic;
+		Immediate		:	in std_logic;
+		rt	Immediate	:	in std_logic;
+		rd	Immediate	:	in std_logic;
+		
+		--- entradas controle ---
+		RegDst			:	in std_logic;
+		OpALU				:	in std_logic;
+		OrigALU			:	in std_logic;
+	);
+end DECODE;

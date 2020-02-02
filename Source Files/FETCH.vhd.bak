@@ -1,0 +1,78 @@
+---
+---	Banco de registradores MIPS - OAC
+---	Autor: Michelangelo da Rocha Machado - 14/0156089
+---
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity FETCH is
+	port
+	(
+		clk			:	in std_logic;
+		OrigPC		:	in std_logic;
+		branch_addr	:	in std_logic (31 downto 0);
+		PC_4			:	out std_logic (31 downto 0);
+		Instrucao	:	out std_logic_vector (31 downto 0);
+	);
+end FETCH;
+
+architecture behavior of FETCH is
+	
+	component PC
+		port
+		(
+			d   : in std_logic_vector(WSIZE-1 downto 0);
+			clk : in std_logic;
+			q   : out std_logic_vector(WSIZE-1 downto 0)
+		)
+	end component;
+	
+	component MemI
+		port
+		(
+			address	: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+			clock		: IN STD_LOGIC  := '1';
+			data		: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+			wren		: IN STD_LOGIC ;
+			q			: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+		)
+	end component;
+	
+	--- wire_<mod1>_to_<mod2>
+	signal wire_PC_to_MemI	: std_logic_vector(31 downto 0);
+	signal wire_Mux_to_PC	: std_logic_vector(31 downto 0);
+	
+	
+begin
+	
+	PC_inst1: PC
+	port map
+	(
+		d   =>	wire_Mux_to_PC,
+		clk =>	clk
+		q   =>	wire_PC_to_MemI
+	);
+	
+	MemI_inst1: MemI
+	port map
+	(
+		address	=>	wire_PC_to_MemI(7 downto 0),
+		clock		=>	clk
+		data		=>	x"00000000",
+		wren		=>	'0',
+		q			=>	Instrucao
+	);
+	
+	PC_4 <= std_logic_vector(unsigned(wire_PC_to_MemI) + 1);
+	
+	--- mux ---
+	wire_Mux_to_PC <=  std_logic_vector(unsigned(wire_PC_to_MemI) + 1) when 
+	OrigPC = '0' else branch_addr;
+
+	
+	
+	
+	
+end FETCH;

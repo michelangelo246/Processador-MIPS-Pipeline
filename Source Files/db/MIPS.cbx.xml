@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="MIPS">
+		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS|DECODE:DECODE_inst1|Breg:Breg_inst1|altsyncram:registrador_rtl_0" CBX_FILE_NAME="altsyncram_48c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS|DECODE:DECODE_inst1|Breg:Breg_inst1|altsyncram:registrador_rtl_1" CBX_FILE_NAME="altsyncram_48c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS|FETCH:FETCH_inst1|MemI:MemI_inst1|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_ohg1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS|MEMORY:MEMORY_inst1|MemD:MemD_inst1|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_tsa1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

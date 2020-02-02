@@ -1,0 +1,32 @@
+---
+---	Banco de registradores MIPS - OAC
+---	Autor: Michelangelo da Rocha Machado - 14/0156089
+---
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity DECODE is
+	generic (WSIZE : natural := 32);
+	port
+	(
+		clk				:	in std_logic;
+		PC_4				:	in std_logic_vector(31 downto 0);
+		Instrucao		:	in std_logic_vector(31 downto 0);
+		wraddr			:	in std_logic_vector(31 downto 0);
+		wrdata			:	in std_logic_vector(31 downto 0);
+		EscreveReg		:	in std_logic_vector(31 downto 0);
+		
+		OpAlu0_E			:	out std_logic_vector;
+		OpAlu1_E			:	out std_logic_vector;
+		OrigAlu_E		:	out std_logic_vector;
+		RegDst_E			:	out std_logic_vector;
+		
+		Branch_M			:	out std_logic;
+		EscreveMem_M	:	out std_logic;
+		
+		EscreveReg_W	:	out std_logic;
+		MemparaReg_W	:	out std_logic;
+	);
+end DECODE;

@@ -1,0 +1,32 @@
+---
+---	PC MIPS - OAC
+---	Autor: Michelangelo da Rocha Machado - 14/0156089
+---
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.std_logic_signed.all;
+use ieee.numeric_std.all;
+
+Entity PC is
+	generic (WSIZE : natural := 32);
+	
+   Port
+	(
+		
+		
+		
+	);
+end PC;
+
+architecture behavior of PC is
+	
+	
+	
+	
+begin
+	
+	
+	
+	
+end behavior;
